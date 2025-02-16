@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import "./App.css";
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
-import Applayout from "./layouts/Applayout";
-import Landing from "./pages/Landing";
-import Dashbord from "./pages/Dashbord";
-import Auth from "./pages/Auth";
-import RedirectLink from "./pages/RedirectLink";
-import LinkPage from "./pages/LinkPage";
+import Applayout from "./layouts/app-layout";
+import Landing from "./pages/landing";
+import Dashbord from "./pages/dashbord";
+import Auth from "./pages/auth";
+import RedirectLink from "./pages/redirect-link";
+import LinkPage from "./pages/link";
 
 
 
