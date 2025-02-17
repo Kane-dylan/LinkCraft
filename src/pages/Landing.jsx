@@ -1,11 +1,15 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
-
   const [longUrl, setLongUrl] = useState("");
   const navigate = useNavigate();
 
@@ -66,6 +70,6 @@ const Landing = () => {
       </Accordion>
     </div>
   );
-}
+};
 
-export default Landing
+export default Landing;
