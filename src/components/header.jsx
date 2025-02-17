@@ -1,12 +1,48 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { Button } from './ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { LinkIcon, LogOut } from 'lucide-react'
 
 const Header = () => {
-  return <nav>
-      <Link>
-        <img src="/logo.png" alt="trimmer logo" className='h-16' />
+
+  const navigate = useNavigate()
+  const user = true
+
+  return (
+    <nav className="flex justify-between items-center py-4">
+      <Link to="/">
+        <img src="/logo.png" alt="trimmer logo" className="h-16" />
       </Link>
+      <div>
+        {!user ? (
+          <Button onClick={() => navigate("/auth")}>Login</Button>
+        ) : (
+          <DropdownMenu>
+            <DropdownMenuTrigger className='w-10 rounded-full overflow-hidden'>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>KD</AvatarFallback>
+              </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Kiran Das</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <LinkIcon className="mr-2 h-4 w-4" />
+                My Links
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-red-400">
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Logout</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )}
+      </div>
     </nav>
+  );
 
 }
 
