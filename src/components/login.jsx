@@ -18,7 +18,7 @@ const Login = () => {
   const [errors,setErrors] = useState([])
   const [formData,setFromData] = useState({
     email: '',
-    password: ''
+    password: '',
   })
 
   const handleInputChange = (e) => {
@@ -42,7 +42,7 @@ const Login = () => {
       })
 
       await schema.validate(formData,{abortEarly: false})
-    } catch (error) {
+    } catch (e) {
       const newErrors = {}
 
       e?.inner.forEach((err) => {
@@ -60,6 +60,7 @@ const Login = () => {
         <CardDescription>
           to your account if you already have one
         </CardDescription>
+        {errors  && <Error message={errors.message} />}
       </CardHeader>
       <CardContent className="space-y-2">
         <div className="space-y-1">
