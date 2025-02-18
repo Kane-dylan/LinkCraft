@@ -1,14 +1,13 @@
 import "./App.css";
-import { createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Applayout from "./layouts/app-layout";
 import Landing from "./pages/landing";
-import Dashbord from "./pages/dashbord";
+import Dashboard from "./pages/dashboard";
 import Auth from "./pages/auth";
 import RedirectLink from "./pages/redirect-link";
 import LinkPage from "./pages/link";
 import UrlProvider from "./context";
-
-
+import RequireAuth from "./components/require-auth";
 
 const router = createBrowserRouter([
   {
@@ -16,32 +15,40 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Landing />
+        element: <Landing />,
       },
       {
-        path: "/Dashbord",
-        element: <Dashbord />
+        path: "/Dashboard",
+        element: (
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        ),
       },
       {
         path: "/Auth",
-        element: <Auth />
+        element: <Auth />,
       },
       {
         path: "/LinkPage/:id",
-        element: <LinkPage/>
+        element: (
+          <RequireAuth>
+            <LinkPage />
+          </RequireAuth>
+        ),
       },
       {
         path: "/:id",
-        element: <RedirectLink />
+        element: <RedirectLink />,
       },
-    ]
-  }
-])
+    ],
+  },
+]);
 
 function App() {
   return (
     <UrlProvider>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </UrlProvider>
   );
 }
