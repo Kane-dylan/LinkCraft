@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import {
   Card,
   CardContent,
@@ -11,6 +11,9 @@ import { Input } from './ui/input';
 import { BeatLoader } from 'react-spinners';
 import Error from './error';
 import *as Yup from 'yup'
+import useFetch from '@/hooks/use-fetch';
+import { login } from '@/db/apiAuth';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 
 const Login = () => {
@@ -21,6 +24,21 @@ const Login = () => {
     password: '',
   })
 
+  const navigate = useNavigate()
+  let [searchParams] =useSearchParams()
+  const longLink = searchParams.get('createNew')
+
+  const{data, error, loading, fn:fnLogin}=useFetch(login,formData)
+
+  useEffect(() => {
+    // console.log(data);
+    if (error === null && data) {
+      navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ''}`)
+    }
+    
+  }, [data,error])
+  
+   
   const handleInputChange = (e) => {
     const {name,value} = e.target
     setFromData((prevState) => ({
@@ -42,6 +60,8 @@ const Login = () => {
       })
 
       await schema.validate(formData,{abortEarly: false})
+      await fnLogin()
+      //api call
     } catch (e) {
       const newErrors = {}
 
@@ -60,7 +80,7 @@ const Login = () => {
         <CardDescription>
           to your account if you already have one
         </CardDescription>
-        {errors  && <Error message={errors.message} />}
+        {error && <Error message={error.message} />}
       </CardHeader>
       <CardContent className="space-y-2">
         <div className="space-y-1">
@@ -89,7 +109,7 @@ const Login = () => {
           onClick={handleLogin}
           className="w-full bg-blue-500 text-white rounded py-2"
         >
-          {true ? <BeatLoader color="#36d7d7" size={10} /> : "Login"}
+          {loading ? <BeatLoader color="#36d7d7" size={10} /> : "Login"}
         </button>
       </CardFooter>
     </Card>

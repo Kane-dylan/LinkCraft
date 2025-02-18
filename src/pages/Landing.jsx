@@ -6,16 +6,12 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import useFetch from "@/hooks/use-fetch";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
-  const [longUrl, setLongUrl] = useState();
+  const [longUrl, setLongUrl] = useState("");
   const navigate = useNavigate();
-
-
-  useFetch(login,);
 
   const handleShorten = (e) => {
     e.preventDefault();
@@ -44,7 +40,7 @@ const Landing = () => {
         </Button>
       </form>
       <img src="/banner.jpeg" alt="hero" className="w-full my-11 md:px-11" />
-      <Accordion type="multiple" collapsible className="w-full md:px-11">
+      <Accordion type="multiple" collapsible="true" className="w-full md:px-11">
         <AccordionItem value="item-1">
           <AccordionTrigger>How does the URL shortener works?</AccordionTrigger>
           <AccordionContent>

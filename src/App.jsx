@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import "./App.css";
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import Applayout from "./layouts/app-layout";
@@ -7,6 +6,7 @@ import Dashbord from "./pages/dashbord";
 import Auth from "./pages/auth";
 import RedirectLink from "./pages/redirect-link";
 import LinkPage from "./pages/link";
+import UrlProvider from "./context";
 
 
 
@@ -40,9 +40,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div>
+    <UrlProvider>
       <RouterProvider router={router}/>
-    </div>
+    </UrlProvider>
   );
 }
 
