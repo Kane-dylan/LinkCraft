@@ -15,6 +15,7 @@ import { getClicksForUrls } from '@/db/authClicks';
 import Error from '@/components/error';
 import { getUrls } from '@/db/apiUrls';
 import LinkCard from '@/components/ui/link-card';
+import CreateLink from '@/components/ui/create-link';
 
 
 const Dashboard = () => {
@@ -67,7 +68,7 @@ const Dashboard = () => {
       </div>
       <div className='flex justify-between items-center'>
         <h1 className='text-4xl font-extrabold'>My Links</h1>
-        <Button>Create Links</Button>
+        <CreateLink/>
       </div>
       <div className='relative'>
         <Input type="text" placeholder='Filter links... ' value={searchQuery} onChange={(e)=>{

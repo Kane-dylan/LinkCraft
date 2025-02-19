@@ -9,7 +9,7 @@ import LinkPage from "./pages/link";
 import UrlProvider from "./context";
 import RequireAuth from "./components/require-auth";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([  
   {
     element: <Applayout />,
     children: [
