@@ -14,6 +14,7 @@ import useFetch from '@/hooks/use-fetch';
 import { getClicksForUrls } from '@/db/authClicks';
 import Error from '@/components/error';
 import { getUrls } from '@/db/apiUrls';
+import LinkCard from '@/components/ui/link-card';
 
 
 const Dashboard = () => {
@@ -57,7 +58,7 @@ const Dashboard = () => {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Total click</CardTitle>
+            <CardTitle>Total clicks</CardTitle>
           </CardHeader>
           <CardContent>
             <p>{clicks?.length}</p>
@@ -75,6 +76,9 @@ const Dashboard = () => {
       <Filter size={24} className='absolute top-2 right-2 p-1'/>
       </div>
       {error && <Error message={error?.message} />}
+      {(filteredUrls || []).map((url,i) => (
+        <LinkCard key={i} url={url} fetchUrls={fnUrls}/>
+      ))}
     </div>
   );
 }
