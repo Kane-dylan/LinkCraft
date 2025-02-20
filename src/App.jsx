@@ -1,6 +1,6 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Applayout from "./layouts/app-layout";
+import Layout from "./layouts/Layout";
 import Landing from "./pages/landing";
 import Dashboard from "./pages/dashboard";
 import Auth from "./pages/auth";
@@ -9,9 +9,10 @@ import LinkPage from "./pages/link";
 import UrlProvider from "./context";
 import RequireAuth from "./components/require-auth";
 
+
 const router = createBrowserRouter([  
   {
-    element: <Applayout />,
+    element: <Layout />,
     children: [
       {
         path: "/",
