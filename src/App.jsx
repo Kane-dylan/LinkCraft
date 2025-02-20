@@ -1,7 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layouts/Layout";
-import Landing from "./pages/landing";
+import Landing from "./pages/Landing";
 import Dashboard from "./pages/dashboard";
 import Auth from "./pages/auth";
 import RedirectLink from "./pages/redirect-link";
