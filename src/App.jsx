@@ -2,10 +2,10 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Landing from "./pages/Landing";
-import Dashboard from "./pages/dashboard";
-import Auth from "./pages/auth";
-import RedirectLink from "./pages/redirect-link";
-import LinkPage from "./pages/link";
+import Dashboard from "./pages/Dashboard";
+import Auth from "./pages/Auth";
+import RedirectLink from "./pages/RedirectLink";
+import LinkPage from "./pages/LinkPage";
 import UrlProvider from "./context";
 import RequireAuth from "./components/require-auth";
 

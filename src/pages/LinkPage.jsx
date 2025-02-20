@@ -11,7 +11,7 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BarLoader, BeatLoader } from "react-spinners";
 
-const Link = () => {
+const LinkPage = () => {
 
   const downloadImage = () => {
     const imageUrl = url?.qr;
@@ -149,4 +149,4 @@ const Link = () => {
   );
 };
 
-export default Link;
+export default LinkPage;
