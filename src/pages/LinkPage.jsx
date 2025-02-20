@@ -69,17 +69,14 @@ const LinkPage = () => {
             {url?.title}
           </span>
           <a
-            href={`https://trimrr.in/${link}`}
+            href={`https://shorten-chi.vercel.app/${link}`}
             target="_blank"
             rel="noreferrer"
             className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
           >
-            https://trimrr.in/{link}
+            https://shorten-chi.vercel.app/{link}
           </a>
-          <a
-            href={url?.original_url}
-            target="_blank"
-          >
+          <a href={url?.original_url} target="_blank">
             <Link2Icon className="p-1" />
             {url?.original_url}
           </a>
@@ -92,7 +89,7 @@ const LinkPage = () => {
               variant="ghost"
               onClick={() =>
                 navigator.clipboard.writeText(
-                  `https://trimrr.in/${url?.short_url}`
+                  `https://shorten-chi.vercel.app/${url?.short_url}`
                 )
               }
             >
