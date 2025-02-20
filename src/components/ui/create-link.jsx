@@ -54,11 +54,11 @@ const CreateLink = () => {
     fn: fnCreateUrl,
   } = useFetch(createUrl, { ...fromValue, user_id: user.id });
 
-  // useEffect(() => {
-  //   if (err === null && data) {
-  //     navigate(`/link/${data[0].id}`);
-  //   }
-  // }, [err, data]);
+  useEffect(() => {
+    if (err === null && data) {
+      navigate(`/link/${data[0].id}`);
+    }
+  }, [err, data, navigate]);
 
   const createNewLink = async () => {
     SetError([]);
@@ -74,11 +74,6 @@ const CreateLink = () => {
         newErrors[err.path] = err.message;
       });
       SetError(newErrors);
-    }
-
-    if (response && response.length > 0) {
-      console.log("Redirecting to:", `/link/${response[0].id}`);
-      navigate(`/link/${response[0].id}`);
     }
   };
 
