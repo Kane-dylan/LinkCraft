@@ -1,5 +1,4 @@
-import { UrlState } from "@/context";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Button } from "./button";
 import {
   Dialog,
   DialogContent,
@@ -9,16 +8,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "./button";
 import { Input } from "./input";
-import Error from "../error";
 import { Card } from "./card";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import Error from "../error";
 import * as yup from "yup";
-import { QRCode } from "react-qrcode-logo";
 import useFetch from "@/hooks/use-fetch";
+import { UrlState } from "@/context";
 import { BeatLoader } from "react-spinners";
 import { createUrl } from "@/db/apiUrls";
+import { QRCode } from "react-qrcode-logo";
 
 const CreateLink = () => {
   const { user } = UrlState();
@@ -27,7 +27,7 @@ const CreateLink = () => {
   let [searchParams, setSearchParams] = useSearchParams();
   const longLink = searchParams.get("createNew");
 
-  const [error, SetError] = useState();
+  const [error, SetError] = useState({});
   const [fromValue, setFromValue] = useState({
     title: "",
     longUrl: longLink ? longLink : "",
@@ -46,19 +46,19 @@ const CreateLink = () => {
   const handleChange = (e) => {
     setFromValue({ ...fromValue, [e.target.id]: e.target.value });
   };
+
   const {
     loading,
     err,
     data,
     fn: fnCreateUrl,
-  } = useFetch(createUrl, { ...fromValue, userId: user.id });
+  } = useFetch(createUrl, { ...fromValue, user_id: user.id });
 
-  useEffect(() => {
-    if (err === null && data) {
-      navigate(`/link/${data[0].id}`);
-    }
-  }, [err, data]);
-
+  // useEffect(() => {
+  //   if (err === null && data) {
+  //     navigate(`/link/${data[0].id}`);
+  //   }
+  // }, [err, data]);
 
   const createNewLink = async () => {
     SetError([]);
@@ -74,6 +74,11 @@ const CreateLink = () => {
         newErrors[err.path] = err.message;
       });
       SetError(newErrors);
+    }
+
+    if (response && response.length > 0) {
+      console.log("Redirecting to:", `/link/${response[0].id}`);
+      navigate(`/link/${response[0].id}`);
     }
   };
 
@@ -127,7 +132,7 @@ const CreateLink = () => {
           <Button
             disabled={loading}
             onClick={createNewLink}
-            type="submit"
+            type="button"
             variant="destructive"
           >
             {loading ? <BeatLoader size={10} color="white" /> : "Create"}

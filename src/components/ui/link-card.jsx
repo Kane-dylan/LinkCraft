@@ -43,7 +43,7 @@ const LinkCard = ({ url, fetchUrls }) => {
         </span>
       </Link>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex sm:flex-col gap-2">
         <Button
           variant="ghost"
           onClick={() =>

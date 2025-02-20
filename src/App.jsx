@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <Auth />,
       },
       {
-        path: "/LinkPage/:id",
+        path: "/link/:id",
         element: (
           <RequireAuth>
             <LinkPage />
