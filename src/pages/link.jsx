@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import DeviceStats from "@/components/ui/device-stats";
+import LocationStats from "@/components/ui/location-stats";
 import { UrlState } from "@/context";
 import { deleteUrl, getUrl } from "@/db/apiUrls";
 import { getClicksForUrl } from "@/db/authClicks";
@@ -43,8 +45,6 @@ const Link = () => {
   const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrl, id);
 
   useEffect(() => {
-    console.log("URL Data:", url);
-
     fn();
     fnStats();
   }, []);
@@ -57,12 +57,13 @@ const Link = () => {
   if (url) {
     link = url?.custom_url ? url?.custom_url : url.short_url;
   }
+
   return (
     <>
       {(loading || loadingStats) && (
         <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />
       )}
-      <div className="flex flex-col gap-8 sm:flex-row justify-between sm:gap-4">
+      <div className="flex flex-col gap-8 sm:flex-row justify-between">
         <div className="flex flex-col items-start gap-8 rounded-lg sm:w-2/5">
           <span className="text-6xl font-extrabold hover:underline cursor-pointer">
             {url?.title}
@@ -78,8 +79,6 @@ const Link = () => {
           <a
             href={url?.original_url}
             target="_blank"
-            className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
-            rel="noreferrer"
           >
             <Link2Icon className="p-1" />
             {url?.original_url}
@@ -87,12 +86,13 @@ const Link = () => {
           <span className="flex items-end font-extralight text-sm">
             {new Date(url?.created_at).toLocaleString()}
           </span>
-          <div className="flex sm:flex-col gap-2">
+
+          <div className="flex gap-2">
             <Button
               variant="ghost"
               onClick={() =>
                 navigator.clipboard.writeText(
-                  `https://trimerr.in/${url?.short_url}`
+                  `https://trimrr.in/${url?.short_url}`
                 )
               }
             >
@@ -132,7 +132,7 @@ const Link = () => {
               </Card>
 
               <CardTitle>Location Data</CardTitle>
-              <Location stats={stats} />
+              <LocationStats stats={stats} />
               <CardTitle>Device Info</CardTitle>
               <DeviceStats stats={stats} />
             </CardContent>

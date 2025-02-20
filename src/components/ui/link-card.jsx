@@ -48,7 +48,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           variant="ghost"
           onClick={() =>
             navigator.clipboard.writeText(
-              `https://trimerr.in/${url?.short_url}`
+              `https://trimrr.in/${url?.short_url}`
             )
           }
         >
