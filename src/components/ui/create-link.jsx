@@ -55,10 +55,11 @@ const CreateLink = () => {
   } = useFetch(createUrl, { ...fromValue, user_id: user.id });
 
   useEffect(() => {
-    if (errors === null && data) {
+    if (!errors && data && data[0]?.id) {
       navigate(`/link/${data[0].id}`);
     }
-  }, [errors, data]);
+  }, [errors, data, navigate]);
+
 
   const createNewLink = async () => {
     SetError([]);
