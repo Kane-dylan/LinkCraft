@@ -49,16 +49,16 @@ const CreateLink = () => {
 
   const {
     loading,
-    err,
+    errors,
     data,
     fn: fnCreateUrl,
   } = useFetch(createUrl, { ...fromValue, user_id: user.id });
 
   useEffect(() => {
-    if (err === null && data) {
+    if (errors === null && data) {
       navigate(`/link/${data[0].id}`);
     }
-  }, [err, data, navigate]);
+  }, [errors, data]);
 
   const createNewLink = async () => {
     SetError([]);
@@ -122,7 +122,7 @@ const CreateLink = () => {
             onChange={handleChange}
           />
         </div>
-        {err?.customUrl && <Error message={err.customUrl} />}
+        {errors?.customUrl && <Error message={errors.customUrl} />}
         <DialogFooter className="sm:justify-start">
           <Button
             disabled={loading}

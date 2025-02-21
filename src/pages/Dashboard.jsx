@@ -18,7 +18,7 @@ import LinkCard from '@/components/ui/link-card';
 import CreateLink from '@/components/ui/create-link';
 
 
-function Dashboard(){
+const Dashboard = () => {
   
   const [searchQuery, setSearchQuery] = useState("");
   const { user } = UrlState();
