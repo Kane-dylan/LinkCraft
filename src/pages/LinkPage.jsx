@@ -12,7 +12,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { BarLoader, BeatLoader } from "react-spinners";
 
 const LinkPage = () => {
-
   const downloadImage = () => {
     const imageUrl = url?.qr;
     const fileName = url?.title;
@@ -69,12 +68,12 @@ const LinkPage = () => {
             {url?.title}
           </span>
           <a
-            href={`https://shorten-chi.vercel.app/${link}`}
+            href={`https://link-craft-org.vercel.app/${link}`}
             target="_blank"
             rel="noreferrer"
             className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
           >
-            https://shorten-chi.vercel.app/{link}
+            https://link-craft-org.vercel.app/{link}
           </a>
           <a href={url?.original_url} target="_blank">
             <Link2Icon className="p-1" />
@@ -89,7 +88,7 @@ const LinkPage = () => {
               variant="ghost"
               onClick={() =>
                 navigator.clipboard.writeText(
-                  `https://shorten-chi.vercel.app/${url?.short_url}`
+                  `https://link-craft-org.vercel.app/${url?.short_url}`
                 )
               }
             >

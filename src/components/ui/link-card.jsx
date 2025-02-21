@@ -32,7 +32,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           {url?.title}
         </span>
         <span className="text-2xl text-blue-400 font-extrabold hover:underline cursor-pointer">
-          https://shorten-chi.vercel.app/
+          https://link-craft-org.vercel.app/
           {url?.custom_url ? url?.custom_url : url?.short_url}
         </span>
         <span className="flex items-center gap-1 hover:underline cursor-pointer">
@@ -48,7 +48,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           variant="ghost"
           onClick={() =>
             navigator.clipboard.writeText(
-              `https://shorten-chi.vercel.app/${url?.short_url}`
+              `https://link-craft-org.vercel.app/${url?.short_url}`
             )
           }
         >
