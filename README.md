@@ -1,19 +1,24 @@
-# LinkCraft 🚀
+# LinkCraft 🔗🏗️
 
 Welcome to **LinkCraft** – your modern solution for crafting and managing your online links with style! Built with a robust tech stack including **React**, **Shadcn UI**, **Supabase**, and other cutting-edge tools, LinkCraft offers an intuitive and interactive experience that makes it easy to organize, share, and customize your digital presence.
 
 ---
 
-## Table of Contents
+## Table of Contents 🪧
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Demo](#demo)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+<table>
+  <tr>
+    <td><a href="#features">Features</a></td>
+    <td><a href="#tech-stack">Tech Stack</a></td>
+    <td><a href="#demo">Demo</a></td>
+    <td><a href="#installation">Installation</a></td>
+    <td><a href="#usage">Usage</a></td>
+    <td><a href="#contributing">Contributing</a></td>
+    <td><a href="#license">License</a></td>
+    <td><a href="#contact">Contact</a></td>
+  </tr>
+</table>
+
 
 ---
 
@@ -38,7 +43,7 @@ Welcome to **LinkCraft** – your modern solution for crafting and managing your
 
 ## Demo <a id="demo"></a>🚀
 
-Check out the live demo here: [LinkCraft Demo](https://link-craft-org.vercel.app/)  
+Check out the live demo here: **[LinkCraft Demo](https://link-craft-org.vercel.app/)**  
 Experience firsthand how LinkCraft can transform your online presence!
 
 ---
@@ -52,40 +57,52 @@ To get started with LinkCraft locally, follow these steps:
    ```
    git clone https://github.com/Kane-dylan/LinkCraft.git
    cd LinkCraft
-
    ```
 
 2 **Install Dependencies & Run:**
+
    ```
     npm install
     npm run dev
    ```
 
+---
 
 ## Usage <a id="usage"></a>📖
 
 Customize your links and manage your profile seamlessly.
 Feel free to explore the codebase and integrate additional features or improvements.
 
+---
+
 ## Contributing <a id="contributing"></a>🤝
 
 Contributions are welcome! If you have ideas, improvements, or bug fixes, please:
 
-## Fork the repository.
+<details>
+<summary>
+   <srtong>Fork the repository.🍴</srtong>
+</summary>   
 
 1. Create your feature branch ```git checkout -b feature/my-feature```.
-2. Commit your changes ```git commit -m 'Add some feature```.
+2. Commit your changes ```git commit -m 'Add some feature'```.
 3. Push to the branch ```git push origin feature/my-feature```.
 4. Open a pull request.
+</details>
 
+---
 
 ## License <a id="license"></a>📄
 
 This project is licensed under the MIT License.
 
+---
+
 ## Contact <a id="contact"></a> 📬
 
 For any questions, suggestions, or feedback, please reach out via the repository’s Issues section.
+
+---
 
 
 **Happy crafting!** 🎨✨
